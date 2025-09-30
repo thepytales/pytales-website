@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyTales - Serious Games für die Schule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html" class="logo">PyTales</a>
+            <!-- Umschalt-Button wurde entfernt -->
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Startseite</a></li>
+                <li class="has-dropdown">
+                    <a href="recorded-history/index.html">Recorded History</a>
+                    <ul class="dropdown">
+                        <li><a href="recorded-history/antikes-griechenland/index.html">Antikes Griechenland</a></li>
+                        <li><a href="recorded-history/erster-weltkrieg/index.html">Erster Weltkrieg</a></li>
+                    </ul>
+                </li>
+                <li><a href="lexikon/index.html">Lexikon</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>PyTales - Serious Games für die Schule</h1>
+                <p style="font-size: 1.2rem; max-width: 600px; margin: 20px auto 0; text-align: center;">Aktuelle Forschung und Entwicklung im Bereich Game-Based Learning</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="content-article fade-in-section">
+                <div class="showcase-layout">
+                    <div class="showcase-image">
+                        <img src="images/drachme-visual.jpg" alt="Visuelle Darstellung des Spiels Die verlorene Drachme">
+                    </div>
+                    <div class="showcase-content">
+                        <h2>Aktuelles Projekt: Die verlorene Drachme</h2>
+                        <p>Als Teil eines Promotionsvorhabens an der TU Dresden wird diese interaktive Visual Novel für den Geschichtsunterricht entwickelt. Das Projekt erforscht, wie narrative Lernspiele gestaltet sein müssen, um im schulischen Kontext erfolgreich zu sein.</p>
+                        <a href="https://pytales.itch.io/die-verlorene-drachme-sv" class="cta-button" target="_blank" rel="noopener noreferrer">Zum Spiel auf itch.io</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="content-article fade-in-section" style="margin-top: 40px;">
+                <div class="showcase-layout reverse">
+                    <div class="showcase-image">
+                        <img src="images/profile-picture.jpg" alt="Profilbild von Dominik Töpper">
+                    </div>
+                    <div class="showcase-content">
+                        <h2>Über den Autor</h2>
+                        <p>Dominik Töpper, wissenschaftlicher Mitarbeiter an der TU Dresden. Forschung zu Gelingensbedingungen für den Einsatz narrativer digitaler Lernmedien im schulischen Unterricht im Rahmen eines Promotionsvorhabens an der Professur für die Didaktik des politischen Unterrichts und der digitalen Bildung (ADEU).</p>
+                        <a href="vita.html" class="cta-button">Zur vollständigen Vita</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-article fade-in-section" style="margin-top: 40px;">
+                <div class="showcase-layout">
+                    <div class="showcase-image">
+                        <img src="images/archive-visual.jpg" alt="Symbolbild für das Archiv">
+                    </div>
+                    <div class="showcase-content">
+                        <h2>Archiv: Recorded History (2022)</h2>
+                        <p>Entdecken Sie die Inhalte des abgeschlossenen Staatsexamen-Projekts, inklusive der Videoreihe zur Spielegrafik im antiken Griechenland und der interaktiven Lernbausteine zu verschiedenen historischen Epochen.</p>
+                        <a href="recorded-history/index.html" class="cta-button">Zum Archiv</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <button id="scrollToTopBtn" title="Nach oben">▲</button>
+    
+    <footer class="main-footer">
+        <p>&copy; 2024 PyTales | Alle Rechte vorbehalten.</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
