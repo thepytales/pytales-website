@@ -51,13 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 5. Logik für die Passwort-Dialogbox
-    const passwordBtn = document.getElementById('password-btn');
+    // 5. Logik für die Passwort-Dialogbox (ROBUSTE VERSION)
     const passwordModal = document.getElementById('password-modal');
-    
-    if (passwordBtn && passwordModal) {
-        const passwordCancelBtn = document.getElementById('password-cancel');
-        const passwordSubmitBtn = document.getElementById('password-submit');
+    if (passwordModal) {
         const passwordInput = document.getElementById('password-input');
         const errorMessage = document.getElementById('error-message');
 
@@ -65,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             passwordModal.style.opacity = '0';
             setTimeout(() => {
                 passwordModal.style.display = 'none';
-            }, 300); // Entspricht der CSS-Transition-Dauer
+            }, 300);
             errorMessage.textContent = '';
             passwordInput.value = '';
         };
@@ -78,22 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 10);
         };
 
-        passwordBtn.addEventListener('click', openModal);
-        passwordCancelBtn.addEventListener('click', closeModal);
-
-        passwordModal.addEventListener('click', (event) => {
-            if (event.target === passwordModal) {
-                closeModal();
-            }
-        });
-
         const checkPassword = () => {
             const correctPassword = 'pytales123!';
-            const enteredPassword = passwordInput.value;
-            const targetUrl = 'https://drive.google.com/drive/folders/1F9jhJqdfBxscQVkbdkt17bXBC5bphCJZ?usp=sharing';
-
-            if (enteredPassword === correctPassword) {
-                window.open(targetUrl, '_blank');
+            if (passwordInput.value === correctPassword) {
+                window.open('https://drive.google.com/drive/folders/1F9jhJqdfBxscQVkbdkt17bXBC5bphCJZ?usp=sharing', '_blank');
                 closeModal();
             } else {
                 errorMessage.textContent = 'Passwort ist nicht korrekt.';
@@ -106,8 +90,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        passwordSubmitBtn.addEventListener('click', checkPassword);
-        
+        // Event Delegation: Wir hören auf Klicks im gesamten Dokument
+        document.addEventListener('click', function(event) {
+            // Prüfen, ob der Klick auf dem Öffnen-Button war
+            if (event.target && event.target.id === 'password-btn') {
+                openModal();
+            }
+            // Prüfen, ob der Klick auf dem Schließen-Button war
+            if (event.target && event.target.id === 'password-cancel') {
+                closeModal();
+            }
+            // Prüfen, ob der Klick auf dem Bestätigen-Button war
+            if (event.target && event.target.id === 'password-submit') {
+                checkPassword();
+            }
+            // Prüfen, ob der Klick auf den Hintergrund war
+            if (event.target && event.target.id === 'password-modal') {
+                closeModal();
+            }
+        });
+
         passwordInput.addEventListener('keyup', (event) => {
             if (event.key === 'Enter') {
                 checkPassword();
