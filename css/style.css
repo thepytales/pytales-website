@@ -44,8 +44,6 @@ li.has-dropdown:hover .dropdown { display: block; opacity: 1; transform: transla
 .hero { min-height: calc(80vh - var(--header-height)); display: flex; justify-content: center; align-items: center; text-align: center; position: relative; padding: 40px 20px; overflow: hidden; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(145, 209, 175, 0.15), transparent 60%), linear-gradient(135deg, var(--bg-dark-2), var(--bg-dark-1)); }
 .hero h1 { font-size: 3.0rem; }
 .hero-content { position: relative; z-index: 10; pointer-events: none; }
-.content-section { padding: 80px 0; border-top: 1px solid var(--bg-dark-3); }
-.content-section.darker { background-color: var(--bg-dark-2); }
 .content-article { background-color: var(--bg-dark-2); padding: 40px; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.2); }
 .showcase-layout { display: flex; align-items: center; gap: 40px; }
 .showcase-image { flex: 1; max-width: 300px; }
@@ -79,17 +77,94 @@ li.has-dropdown:hover .dropdown { display: block; opacity: 1; transform: transla
 .main-footer { background-color: var(--bg-dark-2); text-align: center; padding: 40px 20px; border-top: 3px solid var(--accent-color); }
 
 /* === RESPONSIVE DESIGN === */
-@media (max-width: 768px) {
-    h1 { font-size: 2.2rem; } .hero h1 { font-size: 2.5rem; } .content-article { padding: 20px; }
-    .nav-links { position: fixed; right: 0; top: var(--header-height); background-color: var(--bg-dark-2); width: 100%; height: calc(100vh - var(--header-height)); flex-direction: column; align-items: center; transform: translateX(100%); transition: transform 0.5s ease-in; padding-top: 20px; }
-    .nav-links.nav-active { transform: translateX(0%); }
-    .nav-links a { height: auto; padding: 15px 20px; }
-    li.has-dropdown:hover .dropdown { display: none; }
-    .dropdown { display: block; position: static; background: transparent; box-shadow: none; padding-left: 20px; width: 100%; text-align: center; }
-    .hamburger { display: flex; }
-    .hamburger.toggle .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
-    .hamburger.toggle .bar:nth-child(2) { opacity: 0; }
-    .hamburger.toggle .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
-    .showcase-layout, .showcase-layout.reverse { flex-direction: column; }
-    .showcase-image { max-width: 100%; margin-bottom: 20px; }
+@media (max-width: 768px) { h1 { font-size: 2.2rem; } .hero h1 { font-size: 2.5rem; } .content-article { padding: 20px; } .nav-links { position: fixed; right: 0; top: var(--header-height); background-color: var(--bg-dark-2); width: 100%; height: calc(100vh - var(--header-height)); flex-direction: column; align-items: center; transform: translateX(100%); transition: transform 0.5s ease-in; padding-top: 20px; } .nav-links.nav-active { transform: translateX(0%); } .nav-links a { height: auto; padding: 15px 20px; } li.has-dropdown:hover .dropdown { display: none; } .dropdown { display: block; position: static; background: transparent; box-shadow: none; padding-left: 20px; width: 100%; text-align: center; } .hamburger { display: flex; } .hamburger.toggle .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); } .hamburger.toggle .bar:nth-child(2) { opacity: 0; } .hamburger.toggle .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); } .showcase-layout, .showcase-layout.reverse { flex-direction: column; } .showcase-image { max-width: 100%; margin-bottom: 20px; } }
+/* === Stile für die Passwort-Dialogbox (Modal) === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: var(--bg-dark-2);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+#password-input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--bg-dark-3);
+    background-color: var(--bg-dark-1);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-weight: bold;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.modal-btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-dark-1);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.modal-btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.modal-btn-secondary {
+    background-color: var(--bg-dark-3);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.modal-btn-secondary:hover {
+    background-color: var(--bg-dark-1);
 }

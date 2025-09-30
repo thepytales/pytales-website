@@ -51,4 +51,76 @@ document.addEventListener('DOMContentLoaded', function() {
             heroSection.style.setProperty('--mouse-y', y + 'px');
         });
     }
+    
+    // 5. Logik für die Passwort-Dialogbox
+    const passwordBtn = document.getElementById('password-btn');
+    const passwordModal = document.getElementById('password-modal');
+    
+    if (passwordBtn && passwordModal) {
+        const passwordCancelBtn = document.getElementById('password-cancel');
+        const passwordSubmitBtn = document.getElementById('password-submit');
+        const passwordInput = document.getElementById('password-input');
+        const errorMessage = document.getElementById('error-message');
+
+        const closeModal = () => {
+            passwordModal.style.opacity = '0';
+            // Nach der Animation das Modal wieder aus dem Event-Fluss nehmen
+            setTimeout(() => {
+                passwordModal.style.display = 'none';
+            }, 300); // Muss zur Transition-Dauer im CSS passen
+            errorMessage.textContent = '';
+            passwordInput.value = '';
+        };
+        
+        const openModal = () => {
+            passwordModal.style.display = 'flex';
+            // Ein kleiner Timeout, damit die CSS-Transition greift
+            setTimeout(() => {
+                passwordModal.style.opacity = '1';
+                passwordInput.focus();
+            }, 10);
+        };
+
+        passwordBtn.addEventListener('click', openModal);
+        passwordCancelBtn.addEventListener('click', closeModal);
+
+        passwordModal.addEventListener('click', (event) => {
+            if (event.target === passwordModal) {
+                closeModal();
+            }
+        });
+
+        const checkPassword = () => {
+            const correctPassword = 'pytales123!';
+            const enteredPassword = passwordInput.value;
+            const targetUrl = 'https://drive.google.com/drive/folders/1F9jhJqdfBxscQVkbdkt17bXBC5bphCJZ?usp=sharing';
+
+            if (enteredPassword === correctPassword) {
+                window.open(targetUrl, '_blank');
+                closeModal();
+            } else {
+                errorMessage.textContent = 'Passwort ist nicht korrekt.';
+                // Kurzes Schütteln zur visuellen Rückmeldung
+                passwordModal.querySelector('.modal-content').animate([
+                    { transform: 'translateX(0)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(0)' }
+                ], {
+                    duration: 300,
+                    iterations: 1
+                });
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        };
+
+        passwordSubmitBtn.addEventListener('click', checkPassword);
+        
+        passwordInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    }
 });

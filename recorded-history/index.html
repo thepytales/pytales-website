@@ -51,7 +51,26 @@
                 </ul>
             </nav>
         </article>
+        
+        <article class="content-article fade-in-section" style="margin-top: 40px; text-align: center;">
+            <h2>Zugang zu allen Lehrmaterialien</h2>
+            <p style="text-align: center;">Der Zugang zu den gesammelten Materialien (Arbeitsblätter, Spieldateien, Dokumentationen) ist passwortgeschützt.</p>
+            <button id="password-btn" class="cta-button">Materialien freischalten</button>
+        </article>
     </main>
+
+    <div id="password-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Passwort eingeben</h2>
+            <p style="text-align: center;">Bitte geben Sie das Passwort ein, um auf die Materialien zuzugreifen.</p>
+            <input type="password" id="password-input" placeholder="Passwort...">
+            <p id="error-message" class="error-message"></p>
+            <div class="modal-buttons">
+                <button id="password-cancel" class="modal-btn-secondary">Abbrechen</button>
+                <button id="password-submit" class="modal-btn-primary">Bestätigen</button>
+            </div>
+        </div>
+    </div>
     
     <button id="scrollToTopBtn" title="Nach oben">▲</button>
     
