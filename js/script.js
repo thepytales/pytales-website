@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const rect = heroSection.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             heroSection.style.setProperty('--mouse-x', x + 'px');
             heroSection.style.setProperty('--mouse-y', y + 'px');
         });
@@ -64,17 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const closeModal = () => {
             passwordModal.style.opacity = '0';
-            // Nach der Animation das Modal wieder aus dem Event-Fluss nehmen
             setTimeout(() => {
                 passwordModal.style.display = 'none';
-            }, 300); // Muss zur Transition-Dauer im CSS passen
+            }, 300); // Entspricht der CSS-Transition-Dauer
             errorMessage.textContent = '';
             passwordInput.value = '';
         };
         
         const openModal = () => {
             passwordModal.style.display = 'flex';
-            // Ein kleiner Timeout, damit die CSS-Transition greift
             setTimeout(() => {
                 passwordModal.style.opacity = '1';
                 passwordInput.focus();
@@ -100,16 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeModal();
             } else {
                 errorMessage.textContent = 'Passwort ist nicht korrekt.';
-                // Kurzes Schütteln zur visuellen Rückmeldung
                 passwordModal.querySelector('.modal-content').animate([
-                    { transform: 'translateX(0)' },
-                    { transform: 'translateX(-10px)' },
-                    { transform: 'translateX(10px)' },
-                    { transform: 'translateX(0)' }
-                ], {
-                    duration: 300,
-                    iterations: 1
-                });
+                    { transform: 'translateX(0)' }, { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(10px)' }, { transform: 'translateX(0)' }
+                ], { duration: 300, iterations: 1 });
                 passwordInput.value = '';
                 passwordInput.focus();
             }
