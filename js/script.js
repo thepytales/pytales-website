@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- TEIL 1: GLOBALE FUNKTIONEN (laufen auf jeder Seite) ---
+
     // 1. Mobiles Hamburger-Menü
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -25,23 +27,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 3. Einblend-Animationen beim Scrollen
+    // 3. Einblend-Animationen beim Scrollen (für Unterseiten)
     const sections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
+    if (sections.length > 0) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+        sections.forEach(section => {
+            observer.observe(section);
         });
-    }, { root: null, rootMargin: '0px', threshold: 0.1 });
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    }
 
-    // 4. Maus-Leuchteffekt im Hero-Bereich (nur auf der Startseite)
+    // --- TEIL 2: SEITEN-SPEZIFISCHE FUNKTIONEN ---
+
+    // 4. Code nur für die STARTSEITE (Hero-Effekt & Scroll-Stack)
     const heroSection = document.querySelector('.hero');
-    if (heroSection) {
+    const stackContainer = document.querySelector('.scroll-stack-container');
+    if (heroSection && stackContainer) {
+        // Maus-Leuchteffekt
         heroSection.addEventListener('mousemove', (e) => {
             const rect = heroSection.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -49,28 +57,41 @@ document.addEventListener('DOMContentLoaded', function() {
             heroSection.style.setProperty('--mouse-x', x + 'px');
             heroSection.style.setProperty('--mouse-y', y + 'px');
         });
+
+        // Scroll Stack Logik
+        const stackCards = document.querySelectorAll('.stack-card');
+        const stackObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const card = entry.target;
+                if (entry.isIntersecting) {
+                    stackCards.forEach(c => c.classList.remove('is-focused'));
+                    card.classList.add('is-focused');
+                }
+            });
+        }, { rootMargin: '-150px 0px -40% 0px' });
+
+        stackCards.forEach((card, index) => {
+            const scaleValue = 1 - ((stackCards.length - 1 - index) * 0.05);
+            card.style.setProperty('--scale', scaleValue);
+            stackObserver.observe(card);
+        });
     }
     
-    // 5. Logik für die Passwort-Dialogbox (FINALE, STABILE VERSION)
+    // 5. Code nur für die "RECORDED HISTORY"-SEITE (Passwort-Dialogbox)
     const passwordBtn = document.getElementById('password-btn');
     const passwordModal = document.getElementById('password-modal');
     
-    // Führe den Code nur aus, wenn die Passwort-Elemente auf der Seite existieren
     if (passwordBtn && passwordModal) {
         const passwordCancelBtn = document.getElementById('password-cancel');
         const passwordSubmitBtn = document.getElementById('password-submit');
         const passwordInput = document.getElementById('password-input');
         const errorMessage = document.getElementById('error-message');
 
-        // Sorge dafür, dass das Modal am Anfang versteckt ist
-        passwordModal.style.display = 'none';
-        passwordModal.style.opacity = '0';
-
         const closeModal = () => {
             passwordModal.style.opacity = '0';
             setTimeout(() => {
                 passwordModal.style.display = 'none';
-            }, 300); // Entspricht der CSS-Transition-Dauer
+            }, 300);
             errorMessage.textContent = '';
             passwordInput.value = '';
         };
@@ -84,12 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const checkPassword = () => {
-            const correctPassword = 'pytales123!';
-            const enteredPassword = passwordInput.value;
-            const targetUrl = 'https://drive.google.com/drive/folders/1F9jhJqdfBxscQVkbdkt17bXBC5bphCJZ?usp=sharing';
-
-            if (enteredPassword === correctPassword) {
-                window.open(targetUrl, '_blank');
+            if (passwordInput.value === 'pytales123!') {
+                window.open('https://drive.google.com/drive/folders/1F9jhJqdfBxscQVkbdkt17bXBC5bphCJZ?usp=sharing', '_blank');
                 closeModal();
             } else {
                 errorMessage.textContent = 'Passwort ist nicht korrekt.';
@@ -98,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
 
-        // Event-Listener werden direkt und sicher an die Elemente gehängt
         passwordBtn.addEventListener('click', openModal);
         passwordCancelBtn.addEventListener('click', closeModal);
         passwordSubmitBtn.addEventListener('click', checkPassword);
