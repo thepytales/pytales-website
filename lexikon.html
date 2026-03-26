@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexikon | PyTales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="tech-grid-overlay"></div>
+    <div class="ambient-glow"></div>
+
+    <div class="top-bar">
+        <a href="index.html" class="home-brand-combo">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <div class="brand">PyTales</div>
+        </a>
+        
+        <div class="separator"></div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Startseite</a>
+            <a href="projekte.html" class="nav-link">Projekte</a>
+            <a href="legacy.html" class="nav-link">Archiv</a>
+            <a href="lexikon.html" class="nav-link">Lexikon</a>
+            <a href="impressum.html" class="nav-link">Impressum</a>
+        </nav>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Darstellung wechseln">
+            <svg class="sun-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="moon-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </div>
+
+    <main class="main-container">
+        <div class="panel">
+            <div class="section-label">Wissensdatenbank</div>
+            <h1 class="text-gradient">Historisches Lexikon</h1>
+            <p style="font-size: 16px; color: var(--text-main);">Hier findest du Erklärungen zu wichtigen historischen Begriffen, die in unseren Archiven verwendet werden. Klicke auf einen Begriff, um die Details zu öffnen.</p>
+            
+            <div class="topic-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+                <button onclick="openLexikonModal('agon')" class="topic-card" style="text-align: left; width: 100%;">Agon</button>
+                <button onclick="openLexikonModal('alliierte')" class="topic-card" style="text-align: left; width: 100%;">Alliierte</button>
+                <button onclick="openLexikonModal('augusterlebnis')" class="topic-card" style="text-align: left; width: 100%;">Augusterlebnis</button>
+                <button onclick="openLexikonModal('direkte-demokratie')" class="topic-card" style="text-align: left; width: 100%;">Direkte Demokratie</button>
+                <button onclick="openLexikonModal('dionysien')" class="topic-card" style="text-align: left; width: 100%;">Dionysien</button>
+                <button onclick="openLexikonModal('dolchstosslegende')" class="topic-card" style="text-align: left; width: 100%;">Dolchstoßlegende</button>
+                <button onclick="openLexikonModal('ekklesia')" class="topic-card" style="text-align: left; width: 100%;">Ekklesia</button>
+                <button onclick="openLexikonModal('franz-ferdinand')" class="topic-card" style="text-align: left; width: 100%;">Franz Ferdinand</button>
+                <button onclick="openLexikonModal('friede-von-brest-litowsk')" class="topic-card" style="text-align: left; width: 100%;">Friede von Brest-Litowsk</button>
+                <button onclick="openLexikonModal('graben-und-minenkrieg')" class="topic-card" style="text-align: left; width: 100%;">Graben- und Minenkrieg</button>
+                <button onclick="openLexikonModal('hippodrom')" class="topic-card" style="text-align: left; width: 100%;">Hippodrom</button>
+                <button onclick="openLexikonModal('hippokrates')" class="topic-card" style="text-align: left; width: 100%;">Hippokrates</button>
+                <button onclick="openLexikonModal('imperialismus')" class="topic-card" style="text-align: left; width: 100%;">Imperialismus</button>
+                <button onclick="openLexikonModal('inflation')" class="topic-card" style="text-align: left; width: 100%;">Inflation</button>
+                <button onclick="openLexikonModal('julikrise')" class="topic-card" style="text-align: left; width: 100%;">Julikrise</button>
+                <button onclick="openLexikonModal('kaiser-wilhelm-zwei')" class="topic-card" style="text-align: left; width: 100%;">Kaiser Wilhelm II.</button>
+                <button onclick="openLexikonModal('kolonialismus')" class="topic-card" style="text-align: left; width: 100%;">Kolonialismus</button>
+                <button onclick="openLexikonModal('kriegsanleihe')" class="topic-card" style="text-align: left; width: 100%;">Kriegsanleihe</button>
+                <button onclick="openLexikonModal('lenin-und-trotzki')" class="topic-card" style="text-align: left; width: 100%;">Lenin und Trotzki</button>
+                <button onclick="openLexikonModal('lucius-cornelius-sulla')" class="topic-card" style="text-align: left; width: 100%;">Lucius Cornelius Sulla</button>
+                <button onclick="openLexikonModal('matrosenaufstand')" class="topic-card" style="text-align: left; width: 100%;">Matrosenaufstand</button>
+                <button onclick="openLexikonModal('militarismus')" class="topic-card" style="text-align: left; width: 100%;">Militarismus</button>
+                <button onclick="openLexikonModal('mittelmaechte')" class="topic-card" style="text-align: left; width: 100%;">Mittelmächte</button>
+                <button onclick="openLexikonModal('nationalismus')" class="topic-card" style="text-align: left; width: 100%;">Nationalismus</button>
+                <button onclick="openLexikonModal('odeion')" class="topic-card" style="text-align: left; width: 100%;">Odeion</button>
+                <button onclick="openLexikonModal('otto-von-bismarck')" class="topic-card" style="text-align: left; width: 100%;">Otto von Bismarck</button>
+                <button onclick="openLexikonModal('panathenaeen')" class="topic-card" style="text-align: left; width: 100%;">Panathenäen</button>
+                <button onclick="openLexikonModal('paul-von-hindenburg')" class="topic-card" style="text-align: left; width: 100%;">Paul von Hindenburg</button>
+                <button onclick="openLexikonModal('perikles')" class="topic-card" style="text-align: left; width: 100%;">Perikles</button>
+                <button onclick="openLexikonModal('pnyx')" class="topic-card" style="text-align: left; width: 100%;">Pnyx</button>
+                <button onclick="openLexikonModal('polis')" class="topic-card" style="text-align: left; width: 100%;">Polis</button>
+                <button onclick="openLexikonModal('rassismus')" class="topic-card" style="text-align: left; width: 100%;">Rassismus</button>
+                <button onclick="openLexikonModal('reparation')" class="topic-card" style="text-align: left; width: 100%;">Reparation</button>
+                <button onclick="openLexikonModal('scherbengericht')" class="topic-card" style="text-align: left; width: 100%;">Scherbengericht</button>
+                <button onclick="openLexikonModal('schlieffenplan')" class="topic-card" style="text-align: left; width: 100%;">Schlieffenplan</button>
+                <button onclick="openLexikonModal('stellungskrieg-und-materialschlacht')" class="topic-card" style="text-align: left; width: 100%;">Stellungskrieg/Materialschlacht</button>
+                <button onclick="openLexikonModal('triple-entente')" class="topic-card" style="text-align: left; width: 100%;">Triple-Entente</button>
+                <button onclick="openLexikonModal('versailler-vertrag')" class="topic-card" style="text-align: left; width: 100%;">Versailler Vertrag</button>
+                <button onclick="openLexikonModal('wettruesten')" class="topic-card" style="text-align: left; width: 100%;">Wettrüsten</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lexikon Modal HTML5 Dialog -->
+    <dialog id="lexikon-dialog" class="pwa-glass-box" style="padding: 0; border: 1px solid rgba(255,255,255,0.1); background: #18181b; margin: auto; color: var(--text-main);">
+        <div class="pwa-header">
+            <h2 id="lexikon-title" style="margin: 0; font-size: 18px;">Begriff</h2>
+            <button onclick="closeLexikonModal()" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #9ca3af; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;">✕</button>
+        </div>
+        <div class="pwa-content" id="lexikon-content">
+            Inhalt lädt...
+        </div>
+    </dialog>
+
+    <style>
+        dialog::backdrop { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); }
+    </style>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

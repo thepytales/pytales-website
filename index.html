@@ -3,91 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PyTales - Serious Games für die Schule</title>
+    <title>Startseite | PyTales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="header-left">
-            <a href="index.html" class="logo">PyTales</a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Startseite</a></li>
-                <li class="has-dropdown">
-                    <a href="recorded-history/index.html">Recorded History</a>
-                    <ul class="dropdown">
-                        <li><a href="recorded-history/antikes-griechenland/index.html">Antikes Griechenland</a></li>
-                        <li><a href="recorded-history/erster-weltkrieg/index.html">Erster Weltkrieg</a></li>
-                    </ul>
-                </li>
-                <li><a href="lexikon/index.html">Lexikon</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
+    <!-- ATMOSPHÄRISCHE HINTERGRUND-EFFEKTE -->
+    <div class="tech-grid-overlay"></div>
+    <div class="ambient-glow"></div>
+
+    <!-- SENSABLE STYLE TOP-BAR -->
+    <div class="top-bar">
+        <a href="index.html" class="home-brand-combo">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <div class="brand">PyTales</div>
+        </a>
+        
+        <div class="separator"></div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Startseite</a>
+            <a href="projekte.html" class="nav-link">Projekte</a>
+            <a href="legacy.html" class="nav-link">Archiv</a>
+            <a href="lexikon.html" class="nav-link">Lexikon</a>
+            <a href="impressum.html" class="nav-link">Impressum</a>
         </nav>
-        <div class="hamburger">
-            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Darstellung wechseln">
+            <svg class="sun-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="moon-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-container">
+        
+        <!-- HERO PANEL -->
+        <div class="panel">
+            <div class="section-label">Forschung & Entwicklung</div>
+            <h1 class="text-gradient">Serious Games für die Schule</h1>
+            <p style="font-size: 16px; max-width: 650px; margin-bottom: 35px; color: var(--text-main);">PyTales beschäftigt sich mit der aktuellen Forschung und Entwicklung im Bereich Game-Based Learning und digitaler Didaktik.</p>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="projekte.html" class="primary-btn">Aktuelle Projekte ansehen</a>
+                <a href="legacy.html" class="ghost-btn">Zum Archiv (Recorded History)</a>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>PyTales - Serious Games für die Schule</h1>
-                <p style="font-size: 1.2rem; max-width: 600px; margin: 20px auto 0; text-align: center;">Aktuelle Forschung und Entwicklung im Bereich Game-Based Learning</p>
-            </div>
-        </section>
-
-        <!-- NEUE SCROLL-STACK STRUKTUR -->
-        <div class="scroll-stack-container">
-            <div class="stack-card">
-                <div class="showcase-layout">
-                    <div class="showcase-image"><img src="images/drachme-visual.jpg" alt="Visuelle Darstellung des Spiels Die verlorene Drachme"></div>
-                    <div class="showcase-content">
-                        <h2>Aktuelles Projekt: Die verlorene Drachme</h2>
-                        <p>Als Teil eines Promotionsvorhabens an der TU Dresden wird diese interaktive Visual Novel für den Geschichtsunterricht entwickelt. Das Projekt erforscht, wie narrative Lernspiele gestaltet sein müssen, um im schulischen Kontext erfolgreich zu sein.</p>
-                        <a href="https://pytales.itch.io/die-verlorene-drachme-sv" class="cta-button" target="_blank" rel="noopener noreferrer">Zum Spiel auf itch.io</a>
-                    </div>
-                </div>
-            </div>
-            <div class="stack-card">
-                <div class="showcase-layout reverse">
-                    <div class="showcase-image"><img src="images/profile-picture.jpg" alt="Profilbild von Dominik Töpper"></div>
-                    <div class="showcase-content">
-                        <h2>Über den Autor</h2>
-                        <p>Dominik Töpper, wissenschaftlicher Mitarbeiter an der TU Dresden. Forschung zu Gelingensbedingungen für den Einsatz narrativer digitaler Lernmedien im schulischen Unterricht im Rahmen eines Promotionsvorhabens an der Professur für die Didaktik des politischen Unterrichts und der digitalen Bildung (ADEU).</p>
-                        <a href="vita.html" class="cta-button">Zur vollständigen Vita</a>
-                    </div>
-                </div>
-            </div>
-            <div class="stack-card">
-                <div class="showcase-layout">
-                    <div class="showcase-image"><img src="images/archive-visual.jpg" alt="Symbolbild für das Archiv"></div>
-                    <div class="showcase-content">
-                        <h2>Archiv: Recorded History (2022)</h2>
-                        <p>Entdecken Sie die Inhalte des abgeschlossenen Staatsexamen-Projekts, inklusive der Videoreihe zur Spielegrafik im antiken Griechenland und der interaktiven Lernbausteine zu verschiedenen historischen Epochen.</p>
-                        <a href="recorded-history/index.html" class="cta-button">Zum Archiv</a>
-                    </div>
-                </div>
+        <!-- LAYOUT GRID FÜR KARTEN -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px;">
+            
+            <!-- PROJEKT KARTE -->
+            <div class="panel" style="margin-bottom: 0; animation-delay: 0.1s;">
+                <div class="section-label">Aktuelles Projekt</div>
+                <h2>Die verlorene Drachme</h2>
+                
+                <p>Als Teil eines Promotionsvorhabens an der TU Dresden wird diese interaktive Visual Novel für den Geschichtsunterricht entwickelt. Das Projekt erforscht, wie narrative Lernspiele gestaltet sein müssen, um im schulischen Kontext erfolgreich zu sein.</p>
+                <a href="https://pytales.itch.io/die-verlorene-drachme-sv" class="primary-btn" target="_blank" rel="noopener noreferrer" style="margin-top: 10px;">Zum Spiel auf itch.io</a>
             </div>
 
-            <!-- DER ENTSCHEIDENDE SPACER -->
-            <div class="scroll-spacer"></div>
+            <!-- AUTOR KARTE -->
+            <div class="panel" style="margin-bottom: 0; animation-delay: 0.2s;">
+                <div class="section-label">Über den Autor</div>
+                
+                <div style="margin-bottom: 24px;">
+                    <h3 style="margin-bottom: 6px; font-size: 1.3rem;">Dominik Töpper</h3>
+                    <p style="margin: 0; font-size: 13px; color: #60a5fa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Wissenschaftlicher Mitarbeiter</p>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: var(--text-muted);">TU Dresden</p>
+                </div>
+                
+                <p>Forschung zu Gelingensbedingungen für den Einsatz narrativer digitaler Lernmedien im schulischen Unterricht im Rahmen eines Promotionsvorhabens an der Professur für die Didaktik des politischen Unterrichts und der digitalen Bildung (ADEU).</p>
+                <a href="vita.html" class="ghost-btn" style="margin-top: 1rem;">Zur vollständigen Vita</a>
+            </div>
+
         </div>
-        <!-- ENDE DER SCROLL-STACK STRUKTUR -->
 
     </main>
-    
-    <button id="scrollToTopBtn" title="Nach oben">▲</button>
-    
-    <footer class="main-footer">
-        <p>&copy; 2024 PyTales | Alle Rechte vorbehalten.</p>
-    </footer>
-    
+
+    <!-- Globale Skripte -->
     <script src="js/script.js"></script>
 </body>
 </html>

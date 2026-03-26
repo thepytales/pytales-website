@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv | PyTales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="tech-grid-overlay"></div>
+    <div class="ambient-glow"></div>
+
+    <div class="top-bar">
+        <a href="index.html" class="home-brand-combo">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <div class="brand">PyTales</div>
+        </a>
+        
+        <div class="separator"></div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Startseite</a>
+            <a href="projekte.html" class="nav-link">Projekte</a>
+            <a href="legacy.html" class="nav-link">Archiv</a>
+            <a href="lexikon.html" class="nav-link">Lexikon</a>
+            <a href="impressum.html" class="nav-link">Impressum</a>
+        </nav>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Darstellung wechseln">
+            <svg class="sun-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="moon-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </div>
+
+    <main class="main-container">
+        <div class="panel">
+            <div class="section-label">Abgeschlossenes Projekt</div>
+            <h1 class="text-gradient">Archiv: Recorded History (2022)</h1>
+            <p style="font-size: 16px; color: var(--text-main);">Willkommen im Archiv von PyTales. Hier finden Sie die digital aufbereiteten Inhalte des abgeschlossenen Staatsexamen-Projekts "Recorded History" aus dem Jahr 2022. Es umfasste eine interaktive Lernplattform mit Lernbausteinen, die auf verschiedenen Videospielen basierten.</p>
+            
+            <div class="topic-grid">
+                <a href="antikes-griechenland/index.html" class="topic-card">Antikes Griechenland</a>
+                <a href="erster-weltkrieg/index.html" class="topic-card">Erster Weltkrieg</a>
+            </div>
+        </div>
+
+        <div class="panel" style="animation-delay: 0.1s;">
+            <div class="section-label">Medien</div>
+            <h2>Videoreihe: Eine virtuelle Reise ins Antike Griechenland</h2>
+            <p>Ein zentraler Bestandteil des Projekts war diese aufwendig produzierte Videoreihe. Sie vergleicht reale historische Stätten mit ihren digitalen Nachbildungen im Spiel Assassin's Creed Odyssey.</p>
+            <div class="image-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+                <iframe src="https://www.youtube.com/embed/N_40-Vgb36g?list=PLgSMYLSf-EPs4wwDQMuLEOw9353acKgZW" title="Akropolis von Athen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+
+        <div class="panel" style="animation-delay: 0.2s;">
+            <div class="section-label">Lehrmaterialien</div>
+            <h2>Geschützter Zugang</h2>
+            <p>Der Zugang zu den gesammelten Materialien (Arbeitsblätter, Spieldateien, Dokumentationen) ist passwortgeschützt.</p>
+            <button id="password-btn" class="primary-btn" style="margin-top: 10px;">Materialien freischalten</button>
+        </div>
+    </main>
+
+    <!-- Passwort-Dialog -->
+    <dialog id="password-dialog" class="pwa-glass-box" style="padding: 0; border: 1px solid rgba(255,255,255,0.1); background: #18181b; margin: auto; max-width: 500px; color: var(--text-main);">
+        <div class="pwa-header">
+            <h2 id="pwd-title" style="margin: 0; font-size: 18px;">Passwort eingeben</h2>
+        </div>
+        <div class="pwa-content">
+            <p>Bitte geben Sie das Passwort ein, um auf die Google-Drive Materialien zuzugreifen.</p>
+            <input type="password" id="password-input" placeholder="Passwort eingeben..." style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none;">
+            <span id="error-message" style="color: #ef4444; font-size: 13px; display: block; margin-top: 8px; min-height: 20px;"></span>
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+                <button id="password-cancel" class="ghost-btn">Abbrechen</button>
+                <button id="password-submit" class="primary-btn">Bestätigen</button>
+            </div>
+        </div>
+    </dialog>
+
+    <style>
+        dialog::backdrop { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); }
+    </style>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

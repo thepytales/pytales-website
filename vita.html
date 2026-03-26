@@ -6,70 +6,79 @@
     <title>Vita - Dominik Töpper | PyTales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="tech-grid-overlay"></div>
+    <div class="ambient-glow"></div>
 
-    <!-- === KORRIGIERTER HEADER (JETZT IDENTISCH MIT STARTSEITE) === -->
-    <header class="main-header">
-        <a href="index.html" class="logo">PyTales</a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Startseite</a></li>
-                <li class="has-dropdown">
-                    <a href="#">Recorded History</a>
-                    <ul class="dropdown">
-                        <li><a href="recorded-history/antikes-griechenland/index.html">Antikes Griechenland</a></li>
-                        <li><a href="recorded-history/erster-weltkrieg/index.html">Erster Weltkrieg</a></li>
-                    </ul>
-                </li>
-                <li><a href="lexikon/index.html">Lexikon</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
+    <div class="top-bar">
+        <a href="index.html" class="home-brand-combo">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <div class="brand">PyTales</div>
+        </a>
+        
+        <div class="separator"></div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Startseite</a>
+            <a href="projekte.html" class="nav-link">Projekte</a>
+            <a href="legacy.html" class="nav-link">Archiv</a>
+            <a href="lexikon.html" class="nav-link">Lexikon</a>
+            <a href="impressum.html" class="nav-link">Impressum</a>
         </nav>
-        <div class="hamburger">
-            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Darstellung wechseln">
+            <svg class="sun-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="moon-icon" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </div>
+
+    <main class="main-container">
+        <div style="margin-bottom: 1.5rem;">
+            <a href="index.html" class="ghost-btn" style="padding: 8px 16px; font-size: 13px;">← Zurück zur Startseite</a>
         </div>
-    </header>
 
-    <main class="container">
-        <article class="content-article fade-in-section">
-            <h1>Vita</h1>
-            <h2>Dominik Töpper</h2>
-            <p><em>© TU Dresden</em></p>
+        <div class="panel">
+            <div class="section-label">Über den Autor</div>
+            <h1 style="margin-bottom: 0;">Vita</h1>
+            <p style="font-size: 14px; color: var(--text-main); font-weight: 500; margin-top: 8px; margin-bottom: 2rem;">Dominik Töpper @ TU Dresden</p>
 
-            <h3>seit 2023</h3>
-            <p><strong>Promotionsvorhaben an der Professur ADEU</strong><br>
-            ... über die Gelingensbedingungen für den Einsatz narrativer digitaler Lernmedien im schulischen Unterricht. In einem Design-Based Research-Ansatz werden am Beispiel von Visual Novels für den Geschichtsunterricht übertragbare Designprinzipien für die Gestaltung und Implementierung von Lernspielen aus der Perspektive von Lehrkräften abgeleitet. Das Projekt zielt darauf ab, eine Brücke zwischen medienpädagogischer Forschung, allgemeiner Didaktik und der praktischen Unterrichtsentwicklung zu schlagen.</p>
+            <div style="margin-top: 2rem;">
+                <h3 style="font-size: 1.2rem; color: var(--text-light);">seit 2023</h3>
+                <p><strong>Promotionsvorhaben an der Professur ADEU</strong><br>
+                ... über die Gelingensbedingungen für den Einsatz narrativer digitaler Lernmedien im schulischen Unterricht. In einem Design-Based Research-Ansatz werden am Beispiel von Visual Novels für den Geschichtsunterricht übertragbare Designprinzipien für die Gestaltung und Implementierung von Lernspielen aus der Perspektive von Lehrkräften abgeleitet. Das Projekt zielt darauf ab, eine Brücke zwischen medienpädagogischer Forschung, allgemeiner Didaktik und der praktischen Unterrichtsentwicklung zu schlagen.</p>
+            </div>
 
-            <h3>2017-2023</h3>
-            <p><strong>Staatsexamen 1 Lehramt an Gymnasien</strong><br>
-            Fächer: Geographie und Geschichte</p>
+            <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-light);">
+                <h3 style="font-size: 1.2rem; color: var(--text-light);">2017 - 2023</h3>
+                <p><strong>Staatsexamen 1 Lehramt an Gymnasien</strong><br>
+                Fächer: Geographie und Geschichte</p>
+            </div>
 
-            <h2>Forschungsprojekte</h2>
-            <ul>
-                <li><strong>Die verlorene Drachme - PyTales (Version 2024).</strong> Ein interaktiver Forschungsprototyp und Grundlage des laufenden Dissertationsprojekts seit 2023. Anhand dieser Visual Novel werden, einem Design-Based Research-Ansatz folgend, didaktische Designprinzipien für den Einsatz narrativer Lernmedien aus Lehrkräfteperspektive abgeleitet. <a href="index.html#projekt">Zum Projekt</a></li>
-            </ul>
+            <div style="margin-top: 2rem;">
+                <h2 style="color: var(--text-light);">Forschungsprojekte</h2>
+                <ul>
+                    <li style="margin-bottom: 10px; color: var(--text-main);"><strong>Die verlorene Drachme - PyTales (Version 2024).</strong> Ein interaktiver Forschungsprototyp und Grundlage des laufenden Dissertationsprojekts seit 2023. Anhand dieser Visual Novel werden, einem Design-Based Research-Ansatz folgend, didaktische Designprinzipien für den Einsatz narrativer Lernmedien aus Lehrkräfteperspektive abgeleitet. <a href="projekte.html" style="color: var(--primary);">Zum Projekt</a></li>
+                </ul>
+            </div>
 
-            <h2>Forschungsschwerpunkte</h2>
-            <ul>
-                <li>Digitale Bildung / Digitales Lehren und Lernen</li>
-                <li>Medienpädagogik und Mediendidaktik</li>
-                <li>Game-Based Learning und Serious Games</li>
-                <li>Design-Based Research (DBR)</li>
-                <li>Implementierungsforschung im Bildungskontext</li>
-                <li>Qualitative Forschungsmethoden</li>
-            </ul>
-        </article>
+            <div style="margin-top: 2rem;">
+                <h2 style="color: var(--text-light);">Forschungsschwerpunkte</h2>
+                <ul style="color: var(--text-main);">
+                    <li>Digitale Bildung / Digitales Lehren und Lernen</li>
+                    <li>Medienpädagogik und Mediendidaktik</li>
+                    <li>Game-Based Learning und Serious Games</li>
+                    <li>Design-Based Research (DBR)</li>
+                    <li>Implementierungsforschung im Bildungskontext</li>
+                    <li>Qualitative Forschungsmethoden</li>
+                </ul>
+            </div>
+        </div>
     </main>
-    
-    <button id="scrollToTopBtn" title="Nach oben">▲</button>
-    
-    <footer class="main-footer">
-        <p>&copy; 2024 PyTales | Alle Rechte vorbehalten.</p>
-    </footer>
-    
+
     <script src="js/script.js"></script>
 </body>
 </html>

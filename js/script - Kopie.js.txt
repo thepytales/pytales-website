@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // === 1. PASSWORD MODAL (Legacy Access) ===
+    // === PASSWORD MODAL (Legacy Access) ===
     const pwdBtn = document.getElementById('password-btn');
     const pwdDialog = document.getElementById('password-dialog');
     
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === 2. LEXIKON DATENBANK & MODAL ===
     // === LEXIKON DATENBANK ===
     const lexikonData = {
         'agon': {
@@ -524,20 +523,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // === LEXIKON MODAL LOGIK ===
     window.openLexikonModal = function(term) {
         const dialog = document.getElementById('lexikon-dialog');
         const title = document.getElementById('lexikon-title');
         const content = document.getElementById('lexikon-content');
         
         if(dialog) {
+            // Prüfen, ob der Begriff in unserer Datenbank existiert
             if (lexikonData[term]) {
                 title.textContent = lexikonData[term].title;
                 content.innerHTML = lexikonData[term].content;
             } else {
+                // Fallback, falls ein Begriff noch keinen Text hat
                 const formattedTerm = term.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                 title.textContent = formattedTerm;
                 content.innerHTML = `<p>Der Text für <strong>${formattedTerm}</strong> wird noch hinzugefügt.</p>`;
             }
+            
             dialog.showModal();
         }
     };
@@ -546,73 +549,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const dialog = document.getElementById('lexikon-dialog');
         if(dialog) dialog.close();
     };
+});
 
-
-    // === 3. THEME TOGGLE (Light/Dark Mode) ===
+document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     
+    // Prüfe beim Laden, ob der Nutzer schon mal den Light Mode gewählt hat
     const currentTheme = localStorage.getItem('pytales-theme');
+    
     if (currentTheme === 'light') {
         body.classList.add('light-mode');
+        if (themeToggleBtn) themeToggleBtn.textContent = '🌙';
     }
 
+    // Klick-Logik für den Button
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             body.classList.toggle('light-mode');
+            
+            // Status prüfen und speichern
             if (body.classList.contains('light-mode')) {
                 localStorage.setItem('pytales-theme', 'light');
+                themeToggleBtn.textContent = '🌙';
             } else {
                 localStorage.setItem('pytales-theme', 'dark');
+                themeToggleBtn.textContent = '☀️';
             }
-        });
-    }
-
-
-    // === 4. VOLLBILD-FUNKTION (Spiel) ===
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
-    const gameIframe = document.getElementById('game-iframe');
-
-    if (fullscreenBtn && gameIframe) {
-        fullscreenBtn.addEventListener('click', () => {
-            if (gameIframe.requestFullscreen) {
-                gameIframe.requestFullscreen();
-            } else if (gameIframe.webkitRequestFullscreen) {
-                gameIframe.webkitRequestFullscreen();
-            } else if (gameIframe.msRequestFullscreen) {
-                gameIframe.msRequestFullscreen();
-            }
-        });
-    }
-
-    // === 5. SPIELCODE-GENERATOR LOGIK ===
-    const generateBtn = document.getElementById('generate-btn');
-    const outputField = document.getElementById('gen-output');
-
-    if (generateBtn && outputField) {
-        generateBtn.addEventListener('click', () => {
-            const chapter = document.getElementById('gen-chapter').value;
-            const tut = document.getElementById('gen-tut').checked;
-
-            // Die exakten Codes laut deiner Vorgabe (ohne Kapitel 0)
-            const exactCodes = {
-                'athen': 'athen olive',
-                'nike': 'nike krieg 1',
-                'held': 'held wein dmgc 123',
-                'heilung': 'heilung held dmge dfb 1234',
-                'handel': 'handel olymp dmgg dff 12345',
-                'gebirge': 'gebirge toga dmgj dfi 123457',
-                'sparta': 'sparta orakel dmgn dfl 123457'
-            };
-
-            // Standard-Rückfallwert ist jetzt Kapitel 1 (Athen)
-            let finalCode = exactCodes[chapter] || 'athen olive';
-
-            if (tut) {
-                finalCode += " tut";
-            }
-
-            outputField.value = finalCode;
         });
     }
 });
